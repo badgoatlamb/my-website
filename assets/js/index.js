@@ -76,7 +76,7 @@ const PIECE_STEP_MS = 200; // 每格停留時間（決定整體節奏）
 
 // ===== 預設隊名（第一小隊、第二小隊…） =====
 function defaultTeamNames(n) {
-  const zhNums = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+  const zhNums = ["米妮", "唐老鴨", "米奇", "布魯托", "高飛", "黛西", "七", "八", "九", "十"];
   const names = [];
   for (let i = 0; i < n; i++) {
     const k = i + 1;
@@ -87,7 +87,7 @@ function defaultTeamNames(n) {
         o = k % 10;
       zh = (t === 1 ? "十" : zhNums[t - 1] + "十") + (o ? zhNums[o - 1] : "");
     }
-    names.push(`第${zh}小隊`);
+    names.push(`${zh}小隊`);
   }
   return names;
 }
@@ -96,7 +96,7 @@ function defaultTeamNames(n) {
 let state = {
   teamCount: 2,
   teamNames: defaultTeamNames(2),
-  money: { t0: 200, t1: 200 },
+  money: { t0: 150, t1: 150 },
   pos: 4,
 };
 
@@ -230,7 +230,7 @@ function applyTeamCount(n) {
   const count = Math.max(2, Math.min(12, Number(n) || 2));
   const names = defaultTeamNames(count);
   const money = {};
-  for (let i = 0; i < count; i++) money["t" + i] = 200;
+  for (let i = 0; i < count; i++) money["t" + i] = 150;
   state.teamCount = count;
   state.teamNames = names;
   state.money = money;
